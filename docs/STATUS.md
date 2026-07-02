@@ -6,21 +6,20 @@
 - Implementation plan detail dibuat dan disetujui.
 - **Fase 1: Scaffold project** — Laravel 12 + Inertia React + shadcn/ui terinstall, build berhasil.
 - **Fase 2: Database** — Semua migration, model, dan seeder selesai, `migrate:fresh --seed` berhasil.
+- **Fase 3: Homepage publik** — Route, controller, service, layout, dan semua section components selesai. Build diverifikasi.
 
 ## Sedang Dikerjakan
 
-- Fase 3: Homepage publik (dimulai setelah commit fase 2).
+- Auth admin.
 
 ## Belum Dikerjakan
 
-- Homepage publik (Frontend section components).
-- Auth admin.
 - CRUD hero, service units, dan programs.
 - Testing dan build final.
 
 ## Berikutnya
 
-- Mulai Fase 3: Homepage publik — route, controller, layout, section components.
+- Fase 4: Auth admin + CRUD untuk hero, service units, programs.
 
 ## Catatan Teknis
 
