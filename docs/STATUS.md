@@ -4,23 +4,23 @@
 
 - Design spec MVP homepage disetujui.
 - Implementation plan detail dibuat dan disetujui.
+- **Fase 1: Scaffold project** — Laravel 12 + Inertia React + shadcn/ui terinstall, build berhasil.
+- **Fase 2: Database** — Semua migration, model, dan seeder selesai, `migrate:fresh --seed` berhasil.
 
 ## Sedang Dikerjakan
 
-- Implementation plan belum dijalankan.
+- Fase 3: Homepage publik (dimulai setelah commit fase 2).
 
 ## Belum Dikerjakan
 
-- Scaffold Laravel + Inertia React + shadcn/ui.
-- Migration, model, dan seeder.
-- Homepage publik.
+- Homepage publik (Frontend section components).
 - Auth admin.
 - CRUD hero, service units, dan programs.
-- Testing dan build.
+- Testing dan build final.
 
 ## Berikutnya
 
-- Mulai Fase 1: Scaffold project (Laravel 12 + Inertia React + shadcn/ui).
+- Mulai Fase 3: Homepage publik — route, controller, layout, section components.
 
 ## Catatan Teknis
 
