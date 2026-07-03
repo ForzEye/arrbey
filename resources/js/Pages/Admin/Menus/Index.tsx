@@ -5,47 +5,48 @@ import { cn } from '@/lib/utils';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { Edit, Plus, Trash2 } from 'lucide-react';
 
-interface Program {
+interface Menu {
     id: number;
-    title: string;
-    url: string | null;
+    name: string;
+    url: string;
+    location: string;
     is_active: boolean;
     order: number;
 }
 
 interface Props {
-    programs: Program[];
+    menus: Menu[];
     flash?: {
         success?: string;
     };
 }
 
-export default function Index({ programs, flash }: Props) {
+export default function Index({ menus, flash }: Props) {
     const { delete: destroy } = useForm();
 
     const handleDelete = (id: number) => {
-        if (confirm('Are you sure you want to delete this program?')) {
-            destroy(route('admin.programs.destroy', id));
+        if (confirm('Are you sure you want to delete this menu?')) {
+            destroy(route('admin.menus.destroy', id));
         }
     };
 
     return (
-        <AdminLayout title="Programs">
-            <Head title="Programs" />
+        <AdminLayout title="Navigation Menus">
+            <Head title="Navigation Menus" />
 
             <div className="mx-auto max-w-5xl">
                 <div className="mb-6 flex items-center justify-between">
                     <h2 className="text-xl font-semibold text-slate-800">
-                        Manage Programs
+                        Manage Menus
                     </h2>
                     <Link
-                        href={route('admin.programs.create')}
+                        href={route('admin.menus.create')}
                         className={cn(
                             buttonVariants(),
                             'flex items-center gap-2 bg-teal-900 text-white hover:bg-teal-800',
                         )}
                     >
-                        <Plus className="h-4 w-4" /> Add New Program
+                        <Plus className="h-4 w-4" /> Add New Menu
                     </Link>
                 </div>
 
@@ -65,10 +66,13 @@ export default function Index({ programs, flash }: Props) {
                                             Order
                                         </th>
                                         <th className="px-6 py-4 font-medium">
-                                            Title
+                                            Name
                                         </th>
                                         <th className="px-6 py-4 font-medium">
                                             URL
+                                        </th>
+                                        <th className="px-6 py-4 font-medium">
+                                            Location
                                         </th>
                                         <th className="px-6 py-4 font-medium">
                                             Status
@@ -79,39 +83,42 @@ export default function Index({ programs, flash }: Props) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {programs.length === 0 ? (
+                                    {menus.length === 0 ? (
                                         <tr>
                                             <td
-                                                colSpan={5}
+                                                colSpan={6}
                                                 className="px-6 py-8 text-center text-slate-500"
                                             >
-                                                No programs found.
+                                                No menus found.
                                             </td>
                                         </tr>
                                     ) : (
-                                        programs.map((program) => (
+                                        menus.map((menu) => (
                                             <tr
-                                                key={program.id}
+                                                key={menu.id}
                                                 className="border-b border-slate-100 hover:bg-slate-50"
                                             >
                                                 <td className="px-6 py-4">
-                                                    {program.order}
+                                                    {menu.order}
                                                 </td>
                                                 <td className="px-6 py-4 font-medium text-slate-900">
-                                                    {program.title}
+                                                    {menu.name}
                                                 </td>
                                                 <td className="px-6 py-4 text-slate-500">
-                                                    {program.url || '-'}
+                                                    {menu.url}
+                                                </td>
+                                                <td className="px-6 py-4 capitalize text-slate-500">
+                                                    {menu.location}
                                                 </td>
                                                 <td className="px-6 py-4">
                                                     <span
                                                         className={`rounded-full px-2.5 py-1 text-xs font-medium ${
-                                                            program.is_active
+                                                            menu.is_active
                                                                 ? 'bg-teal-100 text-teal-800'
                                                                 : 'bg-slate-100 text-slate-800'
                                                         }`}
                                                     >
-                                                        {program.is_active
+                                                        {menu.is_active
                                                             ? 'Active'
                                                             : 'Inactive'}
                                                     </span>
@@ -120,8 +127,8 @@ export default function Index({ programs, flash }: Props) {
                                                     <div className="flex items-center justify-end gap-2">
                                                         <Link
                                                             href={route(
-                                                                'admin.programs.edit',
-                                                                program.id,
+                                                                'admin.menus.edit',
+                                                                menu.id,
                                                             )}
                                                             className={cn(
                                                                 buttonVariants({
@@ -140,7 +147,7 @@ export default function Index({ programs, flash }: Props) {
                                                             className="h-8 px-2 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-600"
                                                             onClick={() =>
                                                                 handleDelete(
-                                                                    program.id,
+                                                                    menu.id,
                                                                 )
                                                             }
                                                         >

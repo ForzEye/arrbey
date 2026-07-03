@@ -5,10 +5,12 @@ import {
     Image as ImageIcon,
     LayoutDashboard,
     LogOut,
-    Menu,
+    Menu as MenuIcon,
     Settings,
     User,
     X,
+    List,
+    LayoutTemplate
 } from 'lucide-react';
 import React, { useState } from 'react';
 
@@ -30,6 +32,8 @@ export default function AdminLayout({ children, title }: Props) {
             icon: Briefcase,
         },
         { name: 'Programs', href: '/admin/programs', icon: GraduationCap },
+        { name: 'Navigation Menus', href: '/admin/menus', icon: List },
+        { name: 'Footer', href: '/admin/footer-columns', icon: LayoutTemplate },
         { name: 'Site Settings', href: '/admin/settings', icon: Settings },
     ];
 
@@ -158,7 +162,7 @@ export default function AdminLayout({ children, title }: Props) {
                         onClick={() => setIsSidebarOpen(true)}
                         className="text-slate-600 hover:text-slate-900 md:hidden"
                     >
-                        <Menu className="h-6 w-6" />
+                        <MenuIcon className="h-6 w-6" />
                     </button>
                     <h1 className="text-lg font-semibold text-slate-800">
                         {title || 'Admin Panel'}

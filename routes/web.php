@@ -4,6 +4,9 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\HeroSectionController;
 use App\Http\Controllers\Admin\ServiceUnitController;
 use App\Http\Controllers\Admin\ProgramController;
+use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\FooterColumnController;
+use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -24,6 +27,18 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     // Programs
     Route::resource('programs', ProgramController::class)->except(['show']);
+
+    // Menus
+    Route::resource('menus', MenuController::class)->except(['show']);
+
+    // Footer Columns & Links
+    Route::resource('footer-columns', FooterColumnController::class)->except(['show']);
+    Route::post('footer-columns/{footer_column}/links', [FooterColumnController::class, 'storeLink'])->name('footer-columns.links.store');
+    Route::delete('footer-links/{footer_link}', [FooterColumnController::class, 'destroyLink'])->name('footer-links.destroy');
+
+    // Site Settings
+    Route::get('/settings', [SiteSettingController::class, 'edit'])->name('settings.edit');
+    Route::put('/settings', [SiteSettingController::class, 'update'])->name('settings.update');
 });
 
 Route::redirect('/dashboard', '/admin')

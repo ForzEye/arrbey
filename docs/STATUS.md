@@ -11,22 +11,24 @@
 - **Fase 5: CRUD Hero Section** — Backend service/controller/request dan halaman edit selesai.
 - **Fase 6: CRUD Service Units** — Backend service/controller/request dan halaman index/create/edit selesai.
 - **Fase 7: CRUD Programs** — Backend service/controller/request dan halaman index/create/edit selesai.
+- **Fase 8: Site Settings, Footer, & Navigation Menu** — Backend service/controller/request dan halaman admin selesai.
+- Bug import `HasFactory` pada model footer diperbaiki.
 - Route admin diverifikasi dengan `php artisan route:list --path=admin`.
 - Build frontend diverifikasi dengan `npm run build`.
+- Test Laravel diverifikasi dengan `php artisan test` (25 passed).
 
 ## Sedang Dikerjakan
 
-- Persiapan Fase 8: Site Settings & Footer admin.
+- Persiapan Fase 9: polish konten, QA responsive, dan dokumentasi deploy.
 
 ## Belum Dikerjakan
 
-- CRUD Site Settings & Footer.
 - Pengujian manual alur login dan form admin di browser.
-- Testing final sebelum deployment.
+- QA tampilan responsif final.
+- Dokumentasi deploy shared hosting/cPanel.
 
 ## Berikutnya
 
-- Fase 8: Admin Site Settings & Footer.
 - Fase 9: polish konten, QA responsive, dan dokumentasi deploy.
 
 ## Catatan Teknis

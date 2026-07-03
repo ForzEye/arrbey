@@ -1,9 +1,9 @@
 import AdminLayout from '@/Layouts/AdminLayout';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { Edit, Plus, Trash2 } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 interface ServiceUnit {
     id: number;
@@ -40,7 +40,10 @@ export default function Index({ units, flash }: Props) {
                     </h2>
                     <Link
                         href={route('admin.service-units.create')}
-                        className={cn(buttonVariants(), 'bg-teal-900 text-white hover:bg-teal-800 flex items-center gap-2')}
+                        className={cn(
+                            buttonVariants(),
+                            'flex items-center gap-2 bg-teal-900 text-white hover:bg-teal-800',
+                        )}
                     >
                         <Plus className="h-4 w-4" /> Add New Unit
                     </Link>
@@ -120,7 +123,14 @@ export default function Index({ units, flash }: Props) {
                                                                 'admin.service-units.edit',
                                                                 unit.id,
                                                             )}
-                                                            className={cn(buttonVariants({ variant: 'outline', size: 'sm' }), 'h-8 px-2')}
+                                                            className={cn(
+                                                                buttonVariants({
+                                                                    variant:
+                                                                        'outline',
+                                                                    size: 'sm',
+                                                                }),
+                                                                'h-8 px-2',
+                                                            )}
                                                         >
                                                             <Edit className="h-4 w-4 text-slate-600" />
                                                         </Link>
