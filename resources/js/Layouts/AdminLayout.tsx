@@ -4,13 +4,13 @@ import {
     GraduationCap,
     Image as ImageIcon,
     LayoutDashboard,
+    LayoutTemplate,
+    List,
     LogOut,
     Menu as MenuIcon,
     Settings,
     User,
     X,
-    List,
-    LayoutTemplate
 } from 'lucide-react';
 import React, { useState } from 'react';
 
